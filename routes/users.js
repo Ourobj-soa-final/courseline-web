@@ -1,9 +1,13 @@
 var express = require('express');
+var userDao = require('../dao/userDao');
+
 var router = express.Router();
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Get method');
+  // res.send('Get method');
+  userDao.queryAll(req,res,next);
 });
 
 router.post('/', function(req, res, next) {
