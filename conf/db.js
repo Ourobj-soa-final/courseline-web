@@ -9,4 +9,4 @@ var dbConfig = {
     }
 };
 
-module.export = dbConfig;
+module.exports = dbConfig;
