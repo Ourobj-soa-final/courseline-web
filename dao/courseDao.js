@@ -1,4 +1,4 @@
-var $sql = require('./userSqlMapping');
+var $sql = require('./courseSqlMapping');
 var connectionPool = require('./connectionPool');
 
 var pool = connectionPool.pool;
@@ -10,15 +10,14 @@ module.exports={
             var param = req.query || req.params;
             
             connection.query($sql.insert,
-                                   [param.name,
-                                    param.email,
-                                    param.password],function(err,result){
-                /*if(result){
-                    result = {
-                        code:200,
-                        msg:'增加成功'
-                    };
-                }*/
+                                   [param.coursename,
+                                    param.coursetime,
+                                    param.courseroom,
+                                    param.teachername,
+                                    param.userid],function(err,result){
+                if(err){
+                    jsonWrite(res,err);
+                }
                 
                 jsonWrite(res,result);
                 
