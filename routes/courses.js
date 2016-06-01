@@ -9,6 +9,14 @@ router.get('/', function(req, res, next) {
   courseDao.queryAll(req,res,next);
 });
 
+router.get('/id/:id',function(req,res,next){
+  courseDao.queryBy(req,res,next);
+});
+
+router.get('/userid/:userid',function(req,res,next){
+  courseDao.queryBy(req,res,next);
+});
+
 router.post('/', function(req, res, next) {
   courseDao.add(req,res,next);
 });

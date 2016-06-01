@@ -9,6 +9,7 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 约定:
 1. 返回值:返回JSON格式的数据
 2. 所有POST的Content-type属性:必须为x-www-form-urlencoded,禁止使用form-data
+3. 所有范例api如果有冒号在字段之前,则此字段需要替换为指定格式的数据
 
 ## 用户表
 
@@ -34,7 +35,7 @@ password [字符串] 用户的密码
 
 或者
 
-> GET http://smallpath.net/users/email:email
+> GET http://smallpath.net/users/email/:email
 
 字段email,字符串,为指定用户的邮箱
 
@@ -67,6 +68,20 @@ course_room     [字符串] 课程的上课地点
 teacher_name    [字符串] 课程的教室姓名
 user_id         [数字]   课程归属的用户的id
 ```
+
+### 查询一个课程
+
+提供id或userid两种查询方式
+
+> GET http://smallpath.net/courses/id/:id
+
+字段id,数字,为指定课程的id
+
+或者
+
+> GET http://smallpath.net/courses/userid/:userid
+
+字段userid,id,为指定用户的id
 
 ### 添加一个课程
 
