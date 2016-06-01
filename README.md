@@ -90,11 +90,11 @@ user_id         [数字]   课程归属的用户的id
 
 POST的字段如下:
 ```
-course_name     [字符串] 课程的名称
-course_time     [字符串] 课程的上课时间
-course_room     [字符串] 课程的上课地点
-teacher_name    [字符串] 课程的教室姓名
-user_id         [数字]   课程归属的用户的id
+coursename     [字符串] 课程的名称
+coursetime     [字符串] 课程的上课时间
+courseroom     [字符串] 课程的上课地点
+teachername    [字符串] 课程的教室姓名
+userid         [数字]   课程归属的用户的id
 ```
 
 ## TODO
