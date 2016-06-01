@@ -6,7 +6,9 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 
 地址[http://smallpath.net](http://smallpath.net)
 
-全部返回JSON格式的数据
+约定:
+1. 返回值:返回JSON格式的数据
+2. 所有POST的Content-type属性:必须为x-www-form-urlencoded,禁止使用form-data
 
 ## 用户表
 
@@ -23,10 +25,23 @@ email    [字符串] 用户的邮箱
 password [字符串] 用户的密码
 ```
 
-### 添加一个用户
-> POST http://smallpath.net/users?name=test&email=test&password=test
+### 查找一个用户
+提供id或email两种查询方式
 
-字段如下:
+> GET http://smallpath.net/users/id/:id
+
+字段id,数字,为指定用户的id
+
+或者
+
+> GET http://smallpath.net/users/email:email
+
+字段email,字符串,为指定用户的邮箱
+
+### 添加一个用户
+> POST http://smallpath.net/users
+
+POST要求的字段如下:
 ```
 name     [字符串] 用户的昵称
 email    [字符串] 用户的邮箱
@@ -55,9 +70,9 @@ user_id         [数字]   课程归属的用户的id
 
 ### 添加一个课程
 
-> POST http://smallpath.net/courses?coursename=test&coursetime=test&courseroom=test&teachername=test&userid=1
+> POST http://smallpath.net/courses
 
-字段如下:
+POST的字段如下:
 ```
 course_name     [字符串] 课程的名称
 course_time     [字符串] 课程的上课时间
