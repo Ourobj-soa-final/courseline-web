@@ -7,9 +7,10 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 地址[http://smallpath.net](http://smallpath.net)
 
 约定:
-1. 返回值:返回JSON格式的数据
-2. 所有POST的Content-type属性:必须为x-www-form-urlencoded,禁止使用form-data
-3. 所有范例api如果有冒号在字段之前,则此字段需要替换为指定格式的数据
+
+1. 返回值:返回JSON格式的数据 
+2. 所有POST的Content-type属性:必须为x-www-form-urlencoded,禁止使用form-data 
+3. 所有范例api如果有冒号在字段之前,则此字段需要替换为指定格式的数据 
 
 ## 用户表
 
