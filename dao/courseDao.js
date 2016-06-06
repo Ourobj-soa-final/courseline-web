@@ -7,11 +7,13 @@ var jsonWrite = connectionPool.jsonWrite;
 module.exports={
     add:function(req,res,next){
         pool.getConnection(function(err,connection){
-            var param = req.query || req.params;
+            var param = req.body;
             
             connection.query($sql.insert,
                                    [param.coursename,
-                                    param.coursetime,
+                                    param.week,
+                                    param.startnumber,
+                                    param.endnumber,
                                     param.courseroom,
                                     param.teachername,
                                     param.userid],function(err,result){

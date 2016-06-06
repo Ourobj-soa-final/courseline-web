@@ -8,9 +8,9 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 
 约定:
 
-1. 返回值:返回JSON格式的数据 
-2. 所有POST的Content-type属性:必须为x-www-form-urlencoded,禁止使用form-data 
-3. 所有范例api如果有冒号在字段之前,则此字段需要替换为指定格式的数据 
+1. 返回值:全部返回JSON格式的数据 
+2. 所有POST的Content-type属性必须为x-www-form-urlencoded,禁止使用form-data 
+3. api中有冒号的字段,需要此字段替换为指定格式的数据 
 
 ## 用户表
 
@@ -19,7 +19,7 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 ### 获得所有用户
 > GET http://smallpath.net/users
 
-字段如下:
+返回每一条的字段如下:
 ```
 id       [数字]   用户的id
 name     [字符串] 用户的昵称
@@ -64,7 +64,9 @@ password [字符串] 用户的密码
 ```
 id              [数字]   课程的id
 course_name     [字符串] 课程的名称
-course_time     [字符串] 课程的上课时间
+week            [数字]   课程所在的星期(1-7)
+start_number    [数字]   课程时间的开始节数(1-11)
+end_number      [数字]   课程时间的结束节数(1-11)
 course_room     [字符串] 课程的上课地点
 teacher_name    [字符串] 课程的教室姓名
 user_id         [数字]   课程归属的用户的id
@@ -91,7 +93,9 @@ user_id         [数字]   课程归属的用户的id
 POST的字段如下:
 ```
 coursename     [字符串] 课程的名称
-coursetime     [字符串] 课程的上课时间
+week           [数字]   课程所在的星期(1-7)
+startnumber    [数字]   课程时间的开始节数(1-11)
+endnumber      [数字]   课程时间的结束节数(1-11)
 courseroom     [字符串] 课程的上课地点
 teachername    [字符串] 课程的教室姓名
 userid         [数字]   课程归属的用户的id
@@ -101,5 +105,6 @@ userid         [数字]   课程归属的用户的id
 - [x] 数据库建表
 - [x] 设计RESTful风格的api
 - [x] 提供初步api
+- [x] 完善course表
 - [ ] 提供PUT与DELETE的api
 - [ ] 建立其他表
