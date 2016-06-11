@@ -27,6 +27,28 @@ email    [字符串] 用户的邮箱
 password [字符串] 用户的密码
 ```
 
+### 使用邮箱与密码进行登陆
+
+>GET http://smallpath.net/users/email/:email/password/:password
+
+字段email为用户的邮箱,passwrod为用户的密码,均为字符串
+
+如查询到,则返回
+```
+{
+    code:0,
+    result:[...],
+}
+```
+
+如不存在,则返回
+```
+{
+    code:1,
+    result:[],
+}
+```
+
 ### 查找一个用户
 提供id或email两种查询方式
 

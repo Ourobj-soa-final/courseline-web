@@ -17,6 +17,10 @@ router.get('/email/:email',function(req,res,next){
   userDao.queryBy(req,res,next);
 })
 
+router.get('/email/:email/password/:password',function(req,res,next){
+  userDao.queryLogin(req,res,next);
+})
+
 router.post('/', function(req, res, next) {
   userDao.add(req,res,next);
 });

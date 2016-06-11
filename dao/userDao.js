@@ -1,5 +1,6 @@
 var $sql = require('./userSqlMapping');
 var connectionPool = require('./connectionPool');
+var util = require('../util/util');
 
 var pool = connectionPool.pool;
 var jsonWrite = connectionPool.jsonWrite;
@@ -15,13 +16,40 @@ module.exports={
                                     param.password],function(err,result){
                 /*if(result){
                     result = {
-                        code:200,
+                        code:0,
                         msg:'增加成功'
                     };
                 }*/
+                if(err){
+                    jsonWrite(res,{code:1,result:err});
+                }
                 
-                jsonWrite(res,result);
+                jsonWrite(res,{code:0,result:result});
                 
+                connection.release();    
+            });
+        });
+    },
+
+    queryLogin:function(req,res,next){
+        pool.getConnection(function(err,connection){
+            var param = req.params;
+
+            var queryString = $sql.loginIn;
+            queryParam = [param.email,param.password];
+
+            
+            connection.query(queryString,queryParam,function(err,result){
+                if(err){
+                    jsonWrite(res,{code:1,result:err});
+                    connection.release();
+                    return;
+                }
+                if(util.isType(result,'Array') && result.length==0){
+                    jsonWrite(res,{code:1,result:result});
+                }else{
+                    jsonWrite(res,{code:0,result:result});
+                }
                 connection.release();    
             });
         });
@@ -39,9 +67,16 @@ module.exports={
             
             connection.query(queryString,queryParam,function(err,result){
                 if(err){
-                    jsonWrite(res,err);
+                    jsonWrite(res,{code:1,result:err});
+                    connection.release();
+                    return;
                 }
-                jsonWrite(res,result);
+                if(util.isType(result,'Array') && result.length==0){
+                    jsonWrite(res,{code:1,result:result});
+                }else{
+                    jsonWrite(res,{code:0,result:result});
+                }
+
                 connection.release();    
             });
         });
