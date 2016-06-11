@@ -45,6 +45,26 @@ module.exports={
             });
         });
     },
+    update:function(req,res,next){
+        pool.getConnection(function(err,connection){
+            var param = req.body;
+            
+            connection.query($sql.update,
+                                   [param.name,
+                                    param.place,
+                                    param.starttime,
+                                    param.endtime,
+                                    param.id],function(err,result){
+                if(err){
+                    jsonWrite(res,err);
+                }
+                
+                jsonWrite(res,result);
+                
+                connection.release();    
+            });
+        }); 
+    },
     deleteBy:function(req,res,next){
         pool.getConnection(function(err,connection){
             var param = req.params;

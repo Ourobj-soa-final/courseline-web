@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/', function(req, res, next) {
-  res.send('Put method');
+  courseDao.update(req, res, next);
 });
 
 router.delete('/id/:id', function(req, res, next) {

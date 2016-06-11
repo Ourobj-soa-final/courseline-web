@@ -5,6 +5,7 @@ var course = {
     queryAll: 'select * from course',
     deleteById: 'DELETE from course where id=?',
     deleteByUserId: 'DELETE from course where user_id=?',
+    update:'UPDATE course set course_name=?,week=?,start_number=?,end_number=?,class_room=?,teacher_name=? where id=?',
 };
 
 module.exports = course;

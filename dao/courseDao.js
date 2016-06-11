@@ -67,6 +67,28 @@ module.exports={
             });
         });
     },
+    update:function(req,res,next){
+        pool.getConnection(function(err,connection){
+            var param = req.body;
+            
+            connection.query($sql.update,
+                                   [param.coursename,
+                                    param.week,
+                                    param.startnumber,
+                                    param.endnumber,
+                                    param.courseroom,
+                                    param.teachername,
+                                    param.id],function(err,result){
+                if(err){
+                    jsonWrite(res,err);
+                }
+                
+                jsonWrite(res,result);
+                
+                connection.release();    
+            });
+        });
+    },
     queryAll:function(req,res,next){
         pool.getConnection(function(err,connection){
             
