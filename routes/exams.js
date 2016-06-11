@@ -23,8 +23,13 @@ router.put('/', function(req, res, next) {
   res.send('Put method');
 });
 
-router.delete('/', function(req, res, next) {
-  res.send('Delete method');
+router.delete('/id/:id', function(req, res, next) {
+  examDao.deleteBy(req,res,next);
 });
+
+router.delete('/userid/:userid', function(req, res, next) {
+  examDao.deleteBy(req,res,next);
+});
+
 
 module.exports = router;

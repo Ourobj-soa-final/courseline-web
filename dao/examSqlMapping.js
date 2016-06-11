@@ -3,6 +3,8 @@ var exam = {
     queryById: 'select * from exam where id=?',
     queryByUserId: 'select * from exam where user_id=?',
     queryAll: 'select * from exam',
+    deleteById: 'DELETE from exam where id=?',
+    deleteByUserId: 'DELETE from exam where user_id=?',
 }
 
 module.exports = exam;

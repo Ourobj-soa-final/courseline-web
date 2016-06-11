@@ -106,7 +106,7 @@ user_id         [数字]   课程归属的用户的id
 
 > GET http://smallpath.net/courses/userid/:userid
 
-字段userid,id,为指定用户的id
+字段userid,数字,为指定用户的id
 
 ### 添加一个课程
 
@@ -122,6 +122,20 @@ courseroom     [字符串] 课程的上课地点
 teachername    [字符串] 课程的教室姓名
 userid         [数字]   课程归属的用户的id
 ```
+
+### 删除课程
+
+提供id或userid两种删除方式
+
+> DELETE http://smallpath.net/courses/id/:id
+
+字段id,数字,为指定课程的id
+
+或者
+
+> DELETE http://smallpath.net/courses/userid/:userid
+
+字段userid,数字,为指定用户的id
 
 ## 考试的表
 
@@ -168,6 +182,19 @@ endtime        [时间]   考试的结束时间
 userid         [数字]   考试归属的用户的id
 ```
 
+### 删除考试
+
+提供id或userid两种删除方式
+
+> DELETE http://smallpath.net/exams/id/:id
+
+字段id,数字,为指定考试的id
+
+或者
+
+> DELETE http://smallpath.net/exams/userid/:userid
+
+字段userid,数字,为指定用户的id
 
 ## TODO
 - [x] 数据库建表
