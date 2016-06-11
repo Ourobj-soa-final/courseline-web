@@ -123,10 +123,56 @@ teachername    [字符串] 课程的教室姓名
 userid         [数字]   课程归属的用户的id
 ```
 
+## 考试的表
+
+>/exams
+
+### 获得所有的考试
+
+> GET http://smallpath.net/exams
+
+返回每一条的字段如下:
+```
+id              [数字]   考试的id
+name            [字符串] 考试的名称
+place           [字符串] 考试的地点
+start_time      [时间]   考试的开始时间
+end_time        [时间]   考试的结束时间
+user_id         [数字]   考试归属的用户的id
+```
+
+### 查询一个考试
+
+提供id或userid两种查询方式
+
+> GET http://smallpath.net/exams/id/:id
+
+字段id,数字,为指定考试的id
+
+或者
+
+> GET http://smallpath.net/exams/userid/:userid
+
+字段userid,id,为指定用户的id
+
+### 添加一个考试
+
+> POST http://smallpath.net/exams
+
+POST的字段如下:
+```
+name           [字符串] 考试的名称
+place          [字符串] 考试的地点
+starttime      [时间]   考试的开始时间
+endtime        [时间]   考试的结束时间
+userid         [数字]   考试归属的用户的id
+```
+
+
 ## TODO
 - [x] 数据库建表
 - [x] 设计RESTful风格的api
 - [x] 提供初步api
 - [x] 完善course表
 - [ ] 提供PUT与DELETE的api
-- [ ] 建立其他表
+- [x] 建立其他表
