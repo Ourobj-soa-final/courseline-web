@@ -12,6 +12,20 @@ A RESTful service provider using express.js, for our Web Service & SOA final ass
 2. 所有POST的Content-type属性必须为x-www-form-urlencoded,禁止使用form-data 
 3. api中有冒号的字段,需要此字段替换为指定格式的数据 
 
+## 获得同济4m3网站上的所有课程
+
+> GET http://121.42.38.10:8080/courselineServer/getcourseinfo?id=1352323&password=XXXXXX
+
+注意替换password字段为学号对应的密码.  
+查询失败返回-1,成功则返回所有课程的json数组
+
+## 获得同济4m3网站上的所有考试
+
+> GET http://121.42.38.10:8080/courselineServer/getexamsinfo?id=1352323&password=XXXXXX
+
+注意替换password字段为学号对应的密码.  
+查询失败返回-1,成功则返回所有考试的json数组
+
 ## 用户表
 
 >/users
