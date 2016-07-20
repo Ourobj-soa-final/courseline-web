@@ -2,29 +2,23 @@
 
 A RESTful service provider using express.js, for our Web Service & SOA final assignment
 
+## 部署
+修改pm2.json中的cwd字段,指向项目真实路径
+```
+pm2 start pm2.json
+```
+app运行在3000端口,建议为其配置反向代理
+
 # API
 
-地址[http://smallpath.net](http://smallpath.net)
+地址:
+>你的部署服务器地址
 
 约定:
 
 1. 返回值:全部返回JSON格式的数据 
 2. 所有POST的Content-type属性必须为x-www-form-urlencoded,禁止使用form-data 
 3. api中有冒号的字段,需要此字段替换为指定格式的数据 
-
-## 获得同济4m3网站上的所有课程
-
-> GET http://121.42.38.10:8080/courselineServer/getcourseinfo?id=1352323&password=XXXXXX
-
-注意替换password字段为学号对应的密码.  
-查询失败返回-1,成功则返回所有课程的json数组
-
-## 获得同济4m3网站上的所有考试
-
-> GET http://121.42.38.10:8080/courselineServer/getexamsinfo?id=1352323&password=XXXXXX
-
-注意替换password字段为学号对应的密码.  
-查询失败返回-1,成功则返回所有考试的json数组
 
 ## 用户表
 
@@ -237,6 +231,21 @@ id             [数字]   考试的id
 > DELETE http://smallpath.net/exams/userid/:userid
 
 字段userid,数字,为指定用户的id
+
+## 获得同济4m3网站上的所有课程
+
+> GET http://121.42.38.10:8080/courselineServer/getcourseinfo?id=1352323&password=XXXXXX
+
+注意替换password字段为学号对应的密码.  
+查询失败返回-1,成功则返回所有课程的json数组
+
+## 获得同济4m3网站上的所有考试
+
+> GET http://121.42.38.10:8080/courselineServer/getexamsinfo?id=1352323&password=XXXXXX
+
+注意替换password字段为学号对应的密码.  
+查询失败返回-1,成功则返回所有考试的json数组
+
 
 ## TODO
 - [x] 数据库建表
